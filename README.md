@@ -3,14 +3,21 @@ Updated By ML187 (MichiganLove187) ORIGINAL CREATOR AND ALL CREDITS GO TO GROSSB
 Hugh shout out to grossbean for making this script free and opensource and giving others a chance to expand it i know alot of people are not familiar with lua or other coding lanquage 
 so this is the updated version i hope his work and my small updates inspire you guys to want to improve this resource more  go check his git hub for more awesome releases 
 
-Added Features
-Cooldown
-option for drawtext or qb-target 
-ragdoll for when npc steals drugs from you 
-phone call animation when they call police 
-now when you greet they stay for a second to simulate it a little more but if they steal or accept decline etc they do walk away 
-add min max drug quanity to config 
-also added npcs attack just put it at 0 if you dont want a npc attack feature
+#Added Features
+1.Cooldown
+
+2.option for drawtext or qb-target 
+
+3.ragdoll for when npc steals drugs from you 
+
+4.phone call animation when they call police 
+
+5.now when you greet they stay for a second to simulate it a little more but if they steal or accept decline etc they do walk away 
+
+6.add min max drug quanity to config 
+
+7.also added npcs attack just put it at 0 if you dont want a npc attack feature
+
 if you have any suggestions feel free to reach out to me on discord Michiganlove18769( i strongly recommend you take a second to try and expand this your self as its fun for us should be fun for you)
 if i missed any added features im sorry :/
 From ML187 to you Enjoy 
