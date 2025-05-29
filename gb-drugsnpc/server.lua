@@ -2,6 +2,12 @@ local QBCore = exports['qb-core']:GetCoreObject()
 
 QBCore.Functions.CreateCallback('gb-drugsnpc:server:checkDrugs', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then
+        print("Player not found for source: " .. tostring(source))
+        cb({})
+        return
+    end
+    
     local items = {}
     
     for item, data in pairs(Config.DrugItems) do
@@ -16,6 +22,12 @@ end)
 
 QBCore.Functions.CreateCallback('gb-drugsnpc:server:checkSpecificDrug', function(source, cb, drug, amount)
     local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then
+        print("Player not found for source: " .. tostring(source))
+        cb(false)
+        return
+    end
+    
     local hasItem = Player.Functions.GetItemByName(drug)
     
     if hasItem and hasItem.amount >= amount then
@@ -29,14 +41,22 @@ end)
 RegisterServerEvent('gb-drugsnpc:server:completeBulkSale', function(drug, amount, price)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local total = price * amount
+    if not Player then
+        print("Player not found for source: " .. tostring(src))
+        return
+    end
     
+    local total = price * amount
     Player.Functions.AddMoney('cash', total)
 end)
 
 RegisterServerEvent('gb-drugsnpc:server:recoverDrugAmount', function(drug, amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
+    if not Player then
+        print("Player not found for source: " .. tostring(src))
+        return
+    end
     
     Player.Functions.AddItem(drug, amount)
 end)
@@ -47,7 +67,7 @@ RegisterServerEvent('gb-drugsnpc:server:alertPolice', function(coords)
     
     for i = 1, #Players do
         local Player = QBCore.Functions.GetPlayer(Players[i])
-        if Player.PlayerData.job.name == "police" then
+        if Player and Player.PlayerData.job.name == "police" then
             TriggerClientEvent("gb-drugsnpc:client:policeAlert", Players[i], coords)
         end
     end
